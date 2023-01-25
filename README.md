@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+Enviar sms pela api AWS SNS:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- documentação: https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html
 
-## Available Scripts
+O Amazon SNS não tem custos iniciais. Você paga com base no número de mensagens publicadas, no número de notificações que você entrega e em quaisquer chamadas adicionais à API para gerenciar tópicos e assinaturas. Os preços de entrega variam de acordo com o tipo de endpoint. Você pode começar gratuitamente com o nível gratuito do Amazon SNS.
 
-In the project directory, you can run:
+obs:Cada mensagem SMS pode conter até 140 bytes e a cota de caracteres depende do esquema de codificação. Por exemplo, uma mensagem SMS pode conter:
 
-### `npm start`
+160 caracteres GSM
+140 caracteres ASCII
+70 caracteres UCS-2
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Se você publicar uma mensagem que exceda a cota de tamanho, o Amazon SNS a enviará como várias mensagens, cada uma delas dentro da cota de tamanho. 
+As mensagens não são cortadas no meio de uma palavra, mas nos limites da palavra inteira.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Passos:
 
-### `npm test`
+1-Faça login no console do Amazon SNS.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2-No menu do console, escolha uma região da AWS compatível com mensagens SMS.
 
-### `npm run build`
+3-No painel de navegação, escolha Mensagens de texto (SMS).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4-Na página Mensagens de texto móveis (SMS) , escolha Publicar mensagem de texto.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5-Na página Publicar mensagem SMS , em Tipo de mensagem , escolha uma das seguintes opções:
+promocional: mensagens não criticas como de marketing
+transacional: que dão suporte às transações do cliente, como senhas e autenticação
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O primeiro passo para começar a enviar msg você deve adicionar os numeros de telefone de destino e em seguida verifica-los
 
-### `npm run eject`
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+https://docs.aws.amazon.com/pt_br/sdk-for-ruby/v3/developer-guide/sqs-example-send-and-receive-messages.html
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://docs.aws.amazon.com/pt_br/sdk-for-ruby/v3/developer-guide/setup-config.html
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+https://rubygems.org/gems/aws-sdk-sns?locale=pt-BR
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+https://docs.aws.amazon.com/pt_br/sns/latest/dg/sns-mobile-application-as-subscriber.html
 
-## Learn More
+https://github.com/aws/aws-sdk-rails
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-------------------------------------------------------------------------------------------------------------------------------------------------------
