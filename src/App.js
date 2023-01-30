@@ -1,10 +1,19 @@
 import "./App.css";
-import QRCode from "react-qr-code";
 import { useState } from "react";
+
+import QRCode from "react-qr-code";
 import QRCodeLink from "qrcode";
+
 function App() {
+  
   const [link, setLink] = useState("");
   const [qrLink, setQrLink] = useState("");
+
+  const [title, setTitle] = useState("");
+
+  const handleChange = (event) => {
+    setTitle(event.target.value);
+  };
 
   function handleQrcode(e) {
     setLink(e.target.value);
@@ -34,7 +43,16 @@ function App() {
         value={link}
         onChange={(e) => handleQrcode(e)}
       />
-      <a className="link" href={qrLink} download={`qrcode.png`}>
+
+      <input
+        className="input"
+        placeholder="Título para Download..."
+        type="text"
+        value={title}
+        onChange={handleChange}
+      />
+
+      <a className="link" href={qrLink} download={title}>
         Baixar QRCode
       </a>
     </div>

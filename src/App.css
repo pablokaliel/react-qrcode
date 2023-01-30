@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,32 +6,31 @@
   height: 100vh;
 }
 
-.input{
+.input {
   height: 38px;
   border-radius: 8px;
   max-width: 300px;
   width: 100%;
-  margin:24px 0;
+  margin: 24px 0;
   padding: 8px;
   outline: none;
   border: 1px solid #b6b6b6;
 }
 
-.link{
+.link {
   text-decoration: none;
-  color:#303030;
+  color: #303030;
 }
 
-.link:hover{
-  color:#101010;
+.link:hover {
+  color: #101010;
 }
-.code{
+.code {
   padding: 10px;
   background-color: #fff;
 }
 
 @media (max-width: 600px) {
-  .code{
-  
+  .code {
   }
 }
